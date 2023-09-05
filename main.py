@@ -168,3 +168,19 @@ london_main_account2.withdraw(200.0)
 print("\nUpdated Account Balances:")
 print(f"Account 1 - Name: {london_main_account1.account_name}, Balance: {london_main_account1.balance}")
 print(f"Account 2 - Name: {london_main_account2.account_name}, Balance: {london_main_account2.balance}")
+
+# Add a new branch
+hsbc_bank.add_branch("London West End Branch")
+
+# Display the list of branches (including the new branch)
+print("\nUpdated List of HSBC Branches:")
+hsbc_bank.get_branches()
+
+# Create an account for London West End Branch
+london_west_end_account = Account("Charlie", 2000.0)
+
+# Add the account to the London West End Branch
+for branch in hsbc_bank.branches:
+    if branch == "London West End Branch":
+        branch_obj = Branch(branch)
+        branch_obj.add_account(london_west_end_account)
